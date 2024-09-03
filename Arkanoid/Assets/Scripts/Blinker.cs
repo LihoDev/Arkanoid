@@ -7,6 +7,15 @@ public class Blinker : MonoBehaviour
     private bool _isShow = true;
     private float _currentTime;
 
+    public bool IsHide { 
+        set 
+        { 
+            _isShow = !value;
+            _content.SetActive(_isShow);
+            enabled = !value;
+        } 
+    }
+
     private void Start()
     {
         _currentTime = _time;
