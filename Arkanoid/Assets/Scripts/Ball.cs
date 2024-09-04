@@ -12,15 +12,15 @@ public class Ball : MonoBehaviour
     {
         transform.parent = _carriage.transform;
         transform.localPosition = _startPosition;
-        _direction = _startDirection;
         enabled = false;
     }
 
-    private void Start()
+    public void LaunchBall()
     {
+        enabled = true;
         _startPosition = transform.localPosition;
-        _direction = _startDirection;
         transform.parent = null;
+        _direction = _startDirection;
     }
 
     private void Update()
@@ -30,7 +30,6 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         _direction = Vector2.Reflect(_direction, collision.GetContact(0).normal);
     }
 }

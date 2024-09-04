@@ -6,6 +6,15 @@ public class BallStarter : MonoBehaviour
     [SerializeField] private Blinker _blinker;
     [SerializeField] private string _keyboardButtonName = "Jump";
     [SerializeField] private string _mouseButtonName = "Fire1";
+    private bool _isBlocked;
+
+    public bool IsBlocked 
+    {
+        set 
+        { 
+            _isBlocked = value;
+        }
+    }
 
     public void ResetBall()
     {
@@ -16,9 +25,9 @@ public class BallStarter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown(_keyboardButtonName) || Input.GetButtonDown(_mouseButtonName))
+        if (!_isBlocked && Input.GetButtonDown(_keyboardButtonName) || Input.GetButtonDown(_mouseButtonName))
         {
-            _ball.enabled = true;
+            _ball.LaunchBall();
             _blinker.IsHide = true;
             enabled = false;
         }

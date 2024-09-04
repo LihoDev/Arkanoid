@@ -7,7 +7,9 @@ public class Blinker : MonoBehaviour
     private bool _isShow = true;
     private float _currentTime;
 
-    public bool IsHide { 
+    public bool IsHide {
+        get => enabled;
+
         set 
         { 
             _isShow = !value;

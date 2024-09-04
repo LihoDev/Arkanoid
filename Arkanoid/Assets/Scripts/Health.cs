@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [SerializeField] private List<Image> _images = new List<Image>();
+    [SerializeField] private EndGameMenu _defeatMenu;
     private int _activeIndex;
 
     public void DoDamage()
@@ -12,7 +13,7 @@ public class Health : MonoBehaviour
         _images[_activeIndex].enabled = false;
         _activeIndex--;
         if (_activeIndex < 0)
-            Debug.Log("Defeat");
+            _defeatMenu.Show();
     }
 
     private void Start()
