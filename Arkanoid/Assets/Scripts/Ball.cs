@@ -3,8 +3,10 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
-    [SerializeField] private Vector2 _startDirection = Vector2.up;
     [SerializeField] private CarriageMover _carriage;
+    [SerializeField] private TextPointsPool _textPointsPool;
+    [SerializeField] private Score _scrore;
+    [SerializeField] private BlockCounter _blockCounter;
     private Vector2 _direction;
     private Vector2 _startPosition;
 
@@ -20,7 +22,8 @@ public class Ball : MonoBehaviour
         enabled = true;
         _startPosition = transform.localPosition;
         transform.parent = null;
-        _direction = _startDirection;
+        transform.eulerAngles = Vector3.zero;
+        _direction = _carriage.transform.up;
     }
 
     private void Update()
@@ -31,5 +34,16 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _direction = Vector2.Reflect(_direction, collision.GetContact(0).normal);
+        if (collision.gameObject.TryGetComponent(out Block block))
+        {
+            int points = block.GetPoints();
+            Vector2 position = block.transform.position;
+            if (block.TryDestroy())
+            {
+                _textPointsPool.PasteTextPoint(position, points);
+                _scrore.AddPoints(points);
+                _blockCounter.RemoveBlock();
+            }
+        }
     }
 }

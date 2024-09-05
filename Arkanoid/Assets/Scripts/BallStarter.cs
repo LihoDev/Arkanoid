@@ -25,7 +25,7 @@ public class BallStarter : MonoBehaviour
 
     private void Update()
     {
-        if (!_isBlocked && Input.GetButtonDown(_keyboardButtonName) || Input.GetButtonDown(_mouseButtonName))
+        if (!_isBlocked && (Input.GetButtonDown(_keyboardButtonName) || Input.GetButtonDown(_mouseButtonName)))
         {
             _ball.LaunchBall();
             _blinker.IsHide = true;
