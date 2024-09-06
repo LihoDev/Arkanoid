@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public bool IsReflect {  get; set; } = true;
+    public SpriteRenderer Sprite { get => _sprite; }
     [SerializeField] private float _speed = 5f;
     [SerializeField] private CarriageMover _carriage;
-    [SerializeField] private TextPointsPool _textPointsPool;
-    [SerializeField] private Score _scrore;
-    [SerializeField] private BlockCounter _blockCounter;
+    [SerializeField] private SpriteRenderer _sprite;
     private Vector2 _direction;
     private Vector2 _startPosition;
 
@@ -33,17 +33,15 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _direction = Vector2.Reflect(_direction, collision.GetContact(0).normal);
-        if (collision.gameObject.TryGetComponent(out Block block))
+        bool isBlock = collision.gameObject.TryGetComponent(out Block block);
+
+        if (!collision.gameObject.TryGetComponent(out Gem gem) && !(isBlock && !IsReflect))
         {
-            int points = block.GetPoints();
-            Vector2 position = block.transform.position;
-            if (block.TryDestroy())
-            {
-                _textPointsPool.PasteTextPoint(position, points);
-                _scrore.AddPoints(points);
-                _blockCounter.RemoveBlock();
-            }
+            _direction = Vector2.Reflect(_direction, collision.GetContact(0).normal);
+        }
+        if (isBlock)
+        {
+            block.DoDamage();
         }
     }
 }
