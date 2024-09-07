@@ -5,6 +5,7 @@ public class Ball : MonoBehaviour
 {
     public bool IsReflect {  get; set; } = true;
     public SpriteRenderer Sprite { get => _sprite; }
+    public float Speed { get => _speed; set { _speed = value; } }
     [SerializeField] private float _speed = 5f;
     [SerializeField] private CarriageMover _carriage;
     [SerializeField] private SpriteRenderer _sprite;

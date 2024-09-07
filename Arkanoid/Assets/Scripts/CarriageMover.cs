@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class CarriageMover : MonoBehaviour
 {
+    public float LeftBorder { get => _leftBorder; }
+    public float RightBorder { get => _rightBorder; }
+
     [SerializeField] private float _leftBorder;
     [SerializeField] private float _rightBorder;
+    [SerializeField] private float _modificator = 1f;
     [SerializeField] private Camera _camera;
     [SerializeField] private string _rotationAxisName = "Mouse Y";
     [SerializeField] private Vector3 _rotateDirection = Vector3.up;
@@ -14,6 +18,7 @@ public class CarriageMover : MonoBehaviour
     {
         Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.y = transform.position.y;
+        mousePosition.x *= _modificator;
         transform.position = mousePosition;
         LimitDistance();
         transform.Rotate(_rotateDirection * _rotationSpeed * Input.GetAxis(_rotationAxisName) * Time.deltaTime);

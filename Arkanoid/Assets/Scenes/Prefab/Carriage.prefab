@@ -288,6 +288,7 @@ MonoBehaviour:
   _rightBorder: 4.572
   _camera: {fileID: 0}
   _rotationAxisName: Mouse Y
+  _movingDirection: {x: 1, y: 1, z: 0}
   _rotateDirection: {x: 0, y: 0, z: 1}
   _rotationSpeed: 500
   _maxAngle: 45
