@@ -6,6 +6,11 @@ public class LevelSwitcher : MonoBehaviour
     [SerializeField] private int _nextLevelIndex = 1;
     [SerializeField] private int _mainMenuIndex = 0;
 
+    public void StartLevel(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+
     public void StartNextLevel()
     {
         SceneManager.LoadScene(_nextLevelIndex);

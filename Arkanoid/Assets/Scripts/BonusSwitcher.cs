@@ -7,6 +7,7 @@ namespace Bonus
     {
         [SerializeField] private Ball _ball;
         [SerializeField] private float _sizeIncrease = 3f;
+        [SerializeField] private float _speedDecrease = 2.5f;
         private BonusAction[] bonuses;
         private BonusAction _currentBonus;
 
@@ -26,9 +27,10 @@ namespace Bonus
 
         private void Start() 
         {
-            bonuses = new BonusAction[2] {
+            bonuses = new BonusAction[3] {
                 new EnlargeBall(_sizeIncrease, _ball),
-                new HeavyBall(_ball)
+                new HeavyBall(_ball),
+                new FreezeBall(_speedDecrease, _ball)
             };
         }
     }

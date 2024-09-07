@@ -3430,6 +3430,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4880013616192202533, guid: e3b9d0b22640f434cb0b2519bc4b8985, type: 3}
+      propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4880013616282955783, guid: e3b9d0b22640f434cb0b2519bc4b8985, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3454,6 +3458,10 @@ PrefabInstance:
       propertyPath: _carriageMover
       value: 
       objectReference: {fileID: 1039268994}
+    - target: {fileID: 4880013616896712298, guid: e3b9d0b22640f434cb0b2519bc4b8985, type: 3}
+      propertyPath: _nextLevelIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4880013616896712299, guid: e3b9d0b22640f434cb0b2519bc4b8985, type: 3}
       propertyPath: _carriageMover
       value: 

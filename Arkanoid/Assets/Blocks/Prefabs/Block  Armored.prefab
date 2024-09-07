@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 00e7a496b712c5f43864a37162cdd425, type: 3}
-  m_Color: {r: 0.2719384, g: 0.41966185, b: 0.9150943, a: 1}
+  m_Color: {r: 0.33333334, g: 0.7529412, b: 0.24705882, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,6 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 10
+  _onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6185215957872957099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +151,6 @@ MonoBehaviour:
   _onHelthOver:
     m_PersistentCalls:
       m_Calls: []
-  _defeatMenu: {fileID: 0}
 --- !u!1 &429334632344334853
 GameObject:
   m_ObjectHideFlags: 0

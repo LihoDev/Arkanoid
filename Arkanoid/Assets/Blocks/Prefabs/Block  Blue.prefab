@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 300383629561014814}
   - component: {fileID: 300383629561014815}
   - component: {fileID: 300383629561014812}
+  - component: {fileID: 757795012114903270}
   m_Layer: 0
   m_Name: Block  Blue
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 00e7a496b712c5f43864a37162cdd425, type: 3}
-  m_Color: {r: 0.2719384, g: 0.41966185, b: 0.9150943, a: 1}
+  m_Color: {r: 0.33194357, g: 0.754717, b: 0.24563903, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -125,3 +126,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 10
+  _onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &757795012114903270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300383629561014813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cee3510ffa47445a24bca2c5273351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _images: []
+  _onHelthOver:
+    m_PersistentCalls:
+      m_Calls: []
