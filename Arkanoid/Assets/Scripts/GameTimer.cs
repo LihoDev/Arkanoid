@@ -11,7 +11,11 @@ public class GameTimer : MonoBehaviour
     public void ShowTime(int value)
     {
         int minutes = value / 60;
-        _outputTimer.text = $"{minutes}:{value - minutes * 60}";
+        int seconds = value - minutes * 60;
+        string secondsOut = seconds.ToString();
+        if (seconds < 10)
+            secondsOut = "0" + seconds;
+        _outputTimer.text = $"{minutes}:{secondsOut}";
     }
 
     private void Start()
